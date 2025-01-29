@@ -142,21 +142,3 @@ async def load_data():
 # Run the asynchronous function
 asyncio.run(load_data())
 
-# SQL Queries
-queries = {
-    "tendency_by_month": """
-    SELECT date_trunc('month', published_date) AS month, COUNT(*) AS article_count
-    FROM fact_articles
-    GROUP BY month
-    ORDER BY month;
-    """,
-
-    "most_influential_sources": """
-    SELECT ds.source_name, COUNT(fa.id) AS article_count
-    FROM fact_articles fa
-    JOIN dim_sources ds ON fa.source_id = ds.id
-    GROUP BY ds.source_name
-    ORDER BY article_count DESC;
-    """
-}
-

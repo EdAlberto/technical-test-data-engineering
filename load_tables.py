@@ -77,11 +77,11 @@ INSERT INTO fact_articles (
 async def load_data():
     # Connect to the PostgreSQL database
     connection = await asyncpg.connect(
-        user="root",
-        password="root",
+        user="user",
+        password="password",
         database="postgres",
-        host="localhost",
-        port="5432"
+        host="host",
+        port="port"
     )
 
     # Create tables
